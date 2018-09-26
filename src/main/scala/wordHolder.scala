@@ -1,27 +1,28 @@
 package wf
 
-import wf.argsparser
-import java.util._
-import java.util.Collections
-import java.util
-import java.util.stream._
+import scala.collection.mutable.{Map => MutableMap}
+
 
 class wordHolder(val parser: argsparser) {
-  howmany = parser.getHowmany
-  private val holdingCell = new util.TreeMap[String, Integer]
-  private var howmany = 0
+  var howmany: Int = parser.getHowmany
+  var holdingCell: MutableMap[String,Int] = MutableMap[String,Int]()
 
   def increment(longword: String): Unit = {
-  if (!holdingCell.containsKey(longword)) holdingCell.put(longword, 1)
-  else holdingCell.put(longword, holdingCell.get(longword) + 1)
+    if (!holdingCell.contains(longword)) {
+      holdingCell.put(longword, 1)
+    }
+
+    else {
+      holdingCell.put(longword, holdingCell(longword) + 1)
+    }
   }
 
   def decrement(longword: String): Unit = {
-  holdingCell.put(longword, holdingCell.get(longword) - 1)
+  holdingCell.put(longword, holdingCell(longword) - 1)
   }
 
-  def createoutput: util.Map[_, _] = {
-  val sortedMap = holdingCell.entrySet.stream.sorted(util.Map.Entry.comparingByValue(Comparator.reverseOrder)).limit(howmany).collect(Collectors.toMap(util.Map.Entry.getKey, util.Map.Entry.getValue, (e1: Integer, e2: Integer) => e1, util.LinkedHashMap.`new`))
-  sortedMap
+  def createoutput: Iterator[(String, Int)] = {
+  var cloud = holdingCell.toSeq.sortWith(_._2>_._2).drop(howmany).toIterator
+  cloud
   }
 }
