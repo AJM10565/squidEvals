@@ -1,18 +1,13 @@
 # Overview
 
-Examples of using Scala iterators to implement efficient Unix-style filters.
+topWords ported to Scala
 
 # Objectives
 
 An understanding of
 
-- stream processing (finite vs. infinite/unbounded)
-- pipes and filters architecture
-- separation of processing and I/O concerns
-- Iterator design pattern
-- immutability
-- time/space complexity and scalability
-- performance benchmarking
+ - how to port a Java project to Scala
+ - Syntactic differences
 
 # Prerequisites
 
