@@ -1,10 +1,11 @@
 package wf
 import sun.misc.Signal
 
-class topwords{
+class topWords {
   // fulfill functional requirement of handling pipe with graceful exit
 
   Signal.handle(new Signal("PIPE"), _ => scala.sys.exit())
+
   def main(args: Array[String]): Unit = {
     val status = true
     val parser = new argsparser(args)
