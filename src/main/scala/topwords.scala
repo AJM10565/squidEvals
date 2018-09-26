@@ -1,7 +1,7 @@
 package wf
 import sun.misc.Signal
 
-class topwords {
+class topwords{
   // fulfill functional requirement of handling pipe with graceful exit
 
   Signal.handle(new Signal("PIPE"), _ => scala.sys.exit())
@@ -13,8 +13,7 @@ class topwords {
     val buffer = new circularQueue(parser, filter, acceptor)
     val lines = scala.io.Source.stdin.getLines
     val words = lines.flatMap(_.split("(?U)[^\\p{Alpha}0-9']+"))
-    while ({words.hasNext}) buffer.add(words.next)
+    while ({ words.hasNext }) buffer.add(words.next)
   }
 }
-
 

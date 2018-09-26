@@ -1,6 +1,5 @@
 package wf
 
-
 class circularQueue(val parser: argsparser, var holder: wordHolder, var acceptor: cloudAcceptor) {
   var buffermax = parser.getLastnwords
   var myStringArray = new Array[String](buffermax)
@@ -10,11 +9,10 @@ class circularQueue(val parser: argsparser, var holder: wordHolder, var acceptor
   var count = 0
   var bufferinit = 0
 
-
   def add(new_word: String): Unit = {
     if (myStringArray(position) != null) {
-    val old_word = myStringArray(position)
-    if (old_word.length >= minlength) holder.decrement(old_word)
+      val old_word = myStringArray(position)
+      if (old_word.length >= minlength) holder.decrement(old_word)
     }
     myStringArray(position) = new_word
     if (new_word.length >= minlength) holder.increment(new_word)
@@ -23,8 +21,8 @@ class circularQueue(val parser: argsparser, var holder: wordHolder, var acceptor
     count += 1
     bufferinit += 1
     if (bufferinit >= buffermax) if (count >= waitcount) {
-    count = 0
-    acceptor.accept(holder.createoutput)
+      count = 0
+      acceptor.accept(holder.createoutput)
     }
   }
 }
