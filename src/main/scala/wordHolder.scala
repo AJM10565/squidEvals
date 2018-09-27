@@ -19,7 +19,7 @@ class wordHolder(val parser: argsparser) {
   }
 
   def createoutput: Iterator[(String, Int)] = {
-    var cloud = holdingCell.toSeq.sortWith(_._2 > _._2).drop(howmany).toIterator
+    var cloud = holdingCell.toSeq.sortWith(_._2 < _._2).take(howmany).toIterator
     cloud
   }
 }
