@@ -9,6 +9,8 @@ class argsparser(var args: Array[String]) {
 
   var waitcount: Int = 1 // how many words to wait before updating cloud
 
+  var minsize: Int = 0 // There is no minimum size for the cloud by default
+
   val values = new Array[Int](args.length)
   var i = 0
 
@@ -31,6 +33,12 @@ class argsparser(var args: Array[String]) {
       minlength = values(1)
       lastnwords = values(2)
       waitcount = values(3)
+    } else if (values.length == 5) {
+      howmany = values(0)
+      minlength = values(1)
+      lastnwords = values(2)
+      waitcount = values(3)
+      minsize = values(4)
     } else { // TODO Apply fail fast principle
       howmany = 10
       minlength = 6
@@ -45,4 +53,6 @@ class argsparser(var args: Array[String]) {
   def getLastnwords: Int = lastnwords
 
   def getWaitcount: Int = waitcount
+
+  def getminsize: Int = minsize
 }
