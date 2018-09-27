@@ -39,6 +39,7 @@ class argsparser(var args: Array[String]) {
       lastnwords = values(2)
       waitcount = values(3)
       minsize = values(4)
+      println("The minsize is: " + minsize)
     } else { // TODO Apply fail fast principle
       howmany = 10
       minlength = 6

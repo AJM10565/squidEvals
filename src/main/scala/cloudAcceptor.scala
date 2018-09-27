@@ -8,7 +8,8 @@ class cloudAcceptor(var printtostandardout: Boolean) {
         print(wordCloud.next())
       }
     }
-    println(" ")
+    println()
+
   }
 
 }

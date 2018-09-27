@@ -22,7 +22,7 @@ class wordHolder(val parser: argsparser) {
   // under You can also sort by value in ascending or descending order using sortWith:
   //
   def createoutput: Iterator[(String, Int)] = {
-    var cloud = holdingCell.toSeq.sortWith(_._2 > _._2).take(howmany).filterNot((pair)=> pair._2 < minsize).toIterator
+    var cloud = holdingCell.toSeq.sortWith(_._2 > _._2).take(howmany).filterNot((pair) => pair._2 < minsize).toIterator
     cloud
   }
 }
