@@ -3,7 +3,7 @@ import scala.collection.immutable.HashSet
 import scala.io.Source
 class ignorer {
 
-  val bufferedSource: Source = Source.fromFile("/Users/ajm/IdeaProjects/cs371f18p1b/ignore_list")
+  val bufferedSource: Source = Source.fromFile("src/ignore_list")
   val words: Iterator[String] = bufferedSource.getLines.flatMap(_.split("(?U)[^\\p{Alpha}0-9']+"))
   val wordslist: Seq[String] = words.toSeq
   val ignorehash: HashSet[String] = scala.collection.immutable.HashSet() ++ wordslist

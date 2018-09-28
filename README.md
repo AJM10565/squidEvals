@@ -15,12 +15,9 @@ An understanding of
 - 0.5 Treat words case-insensitively, i.e., ignore capitalization and the like.
 - 1 Add an command-line argument for a minimum frequency to include a word in the word cloud. 5th arg
 - 1 Read from a file an "ignore list" of words to be ignored regardless of length.
-# Prerequisites
+  The ignore list can be found in src/ignore_list.txt Feel free to edit it at your leasure. Words are ignored case-insensitively.
+- Any words that are ignored from the text file do not effect the internal buffer.
 
-- Java Development Kit (JDK) through your package management system or from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads)
-- [sbt](http://www.scala-sbt.org/)
-
-These really are the only required prerequisites.
 
 # Running the applications
 
@@ -30,6 +27,8 @@ or
 sbt "run arg1 arg2 arg3 arg 4 arg5"
 
 with as many args as you wish.
+
+
 
     
     
